@@ -1,0 +1,10 @@
+
+INSERT INTO books (title, author, published_year, copies_total)
+VALUES
+  ('1984', 'George Orwell', 1949, 3),
+  ('To Kill a Mockingbird', 'Harper Lee', 1960, 2);
+
+INSERT INTO members (name, email)
+VALUES
+  ('dhruv', 'dhruv@example.com'),
+  ('smriti', 'Smriti@example.com');
