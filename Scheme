@@ -1,0 +1,27 @@
+-- 1. Books
+CREATE TABLE books (
+  book_id   SERIAL PRIMARY KEY,
+  title     VARCHAR(200) NOT NULL,
+  author    VARCHAR(100),
+  published_year INT,
+  copies_total INT NOT NULL DEFAULT 1,
+  copies_available INT NOT NULL DEFAULT 1
+);
+
+-- 2. Members
+CREATE TABLE members (
+  member_id SERIAL PRIMARY KEY,
+  name      VARCHAR(100) NOT NULL,
+  email     VARCHAR(100) UNIQUE NOT NULL,
+  joined_on DATE DEFAULT CURRENT_DATE
+);
+
+-- 3. Loans
+CREATE TABLE loans (
+  loan_id   SERIAL PRIMARY KEY,
+  book_id   INT REFERENCES books(book_id),
+  member_id INT REFERENCES members(member_id),
+  loaned_on DATE DEFAULT CURRENT_DATE,
+  due_on    DATE,
+  returned_on DATE
+);
